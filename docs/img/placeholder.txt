@@ -1,0 +1,1 @@
+Images are copied from frontend/img to docs/img by the workflow. If you want immediate GitHub Pages preview, copy the files from frontend/img to docs/img.

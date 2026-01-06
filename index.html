@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>HC – Reach Your Dance Goals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,12 +33,14 @@
 </header>
 
 <!-- HERO SECTION -->
-<section class="hero">
-    <img src="frontend/img/main.png" alt="Dance">
-    <div class="hero-text">
+<section class="hero" style="background-image: url('frontend/img/main.png')">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
         <h1>REACH YOUR DANCE GOALS</h1>
-        <p>With 1500+ online classes, programs, and more.</p>
-        <button class="primary-btn" onclick="showSignup()">GET STARTED</button>
+        <p class="lead">With 1500+ online classes, programs, and more.</p>
+        <div class="hero-cta">
+            <button class="primary-btn" onclick="showSignup()">GET STARTED</button>
+        </div>
         <p class="trusted">Forbes • Indian Times • Insider</p>
     </div>
 </section>

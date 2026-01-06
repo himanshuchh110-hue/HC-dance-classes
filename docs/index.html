@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HC – Reach Your Dance Goals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    🎉 Special Offer! Get discount with code <b>HIMANSHU10</b>. Limited time offer →
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2 class="logo">HC DANCE CLASSES</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#styles">Styles</a>
+        <a href="#levels">Levels</a>
+        <a href="#reviews" onclick="scrollToReviews(); return false;">
+            Reviews <span id="review-count-badge" class="badge">0</span>
+        </a>
+        <a href="#blog">Blog</a>
+    </nav>
+    <div class="auth" id="auth-container">
+        <a href="#" onclick="showLogin(); return false;">Log In</a>
+        <button onclick="showSignup()">Sign Up</button>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" style="background-image: url('img/main.png')">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+        <h1>REACH YOUR DANCE GOALS</h1>
+        <p class="lead">With 1500+ online classes, programs, and more.</p>
+        <div class="hero-cta">
+            <button class="primary-btn" onclick="showSignup()">GET STARTED</button>
+        </div>
+        <p class="trusted">Forbes • Indian Times • Insider</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2>About HC Dance Classes</h2>
+    <p>HC Dance Classes is a dedicated platform for nurturing talent, confidence, and creativity through the art of dance. We offer a wide range of classes for all ages and levels, taught by experienced instructors who focus on technique, musicality, and performance. Our courses combine discipline with creative expression, helping students build skills, confidence, and a lifelong love of movement. Whether you're starting out or aiming to perform professionally, HC Dance Classes is more than just a dance academy; it is a place where passion meets discipline and talent is transformed into confidence.</p>
+</section>
+
+<!-- DANCE STYLES -->
+<section class="styles">
+    <h2>Learn A Variety of Dance Styles</h2>
+    <div class="grid">
+        <button class="style-card" data-style="Open Style" aria-label="Open Style">
+            <img src="img/open style.jpg" alt="Open Style"><span>Open Style</span>
+        </button>
+        <button class="style-card" data-style="Hip Hop" aria-label="Hip Hop">
+            <img src="img/hiphop.jpg" alt="Hip Hop"><span>Hip Hop</span>
+        </button>
+        <button class="style-card" data-style="Contemporary" aria-label="Contemporary">
+            <img src="img/Contemporary.jpg" alt="Contemporary"><span>Contemporary</span>
+        </button>
+        <button class="style-card" data-style="Breaking" aria-label="Breaking">
+            <img src="img/breaking.jpg" alt="Breaking"><span>Breaking</span>
+        </button>
+    </div>
+</section>
+
+<!-- LEVELS -->
+<section class="levels">
+    <h2>Step-by-Step Learning For All Levels</h2>
+    <div class="level-cards">
+        <div class="card yellow">
+            <h4>BRAND NEW</h4>
+            <p>Got two left feet? Start with our 10-day intro program.</p>
+        </div>
+        <div class="card green">
+            <h4>BEGINNER</h4>
+            <p>Got the basics down? Level up with new moves and routines.</p>
+        </div>
+        <div class="card blue">
+            <h4>INTERMEDIATE</h4>
+            <p>Feel pretty confident? Learn more challenging skills and pieces.</p>
+        </div>
+        <div class="card mint">
+            <h4>ADVANCED</h4>
+            <p>Already killin’ it? Train with the top choreographers in the game.</p>
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community">
+    <div class="left">
+        <h2>Join Dancers In 100+ Countries</h2>
+        <p>Our global community is here to give feedback, share tips, and take on dance challenges with you.</p>
+    </div>
+</section>
+
+<!-- REVIEWS & RATINGS -->
+<section class="reviews" id="reviews">
+    <h2>Student Reviews & Ratings</h2>
+    <div class="reviews-container">
+        <div class="review-form-section">
+            <h3>Share Your Experience</h3>
+            <form onsubmit="submitReview(event)">
+                <input type="text" id="review-name" placeholder="Your Name" required>
+                <textarea id="review-text" placeholder="Share your thoughts about our classes..." rows="5" required></textarea>
+                <div class="rating-selector">
+                    <label>Rate your experience:</label>
+                    <div class="stars">
+                        <span class="star" onclick="setRating(1)" data-rating="1">★</span>
+                        <span class="star" onclick="setRating(2)" data-rating="2">★</span>
+                        <span class="star" onclick="setRating(3)" data-rating="3">★</span>
+                        <span class="star" onclick="setRating(4)" data-rating="4">★</span>
+                        <span class="star" onclick="setRating(5)" data-rating="5">★</span>
+                    </div>
+                    <span id="rating-value">0</span>/5
+                </div>
+                <input type="hidden" id="review-rating" value="0">
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+        <div class="reviews-list" id="reviews-list">
+            <p>Loading reviews...</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>HC DANCE CLASSES</h3>
+            <p>Get the latest dance content & HC news.</p>
+            <input type="email" id="newsletter-email" placeholder="Email">
+            <button onclick="subscribe()">Subscribe</button>
+        </div>
+        <div>
+            <h4>Explore</h4>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Support</a>
+        </div>
+        <div>
+            <h4>Contact Owner</h4>
+            <p><strong>Himanshu Choudhary</strong></p>
+            <p>📞 <a href="tel:7300470078">7300470078</a></p>
+            <p>Get in touch with the founder directly for inquiries and feedback.</p>
+        </div>
+    </div>
+    <p class="copyright">© 2026 HC Dance Classes | Owner: Himanshu Choudhary</p>
+</footer>
+
+<script src="frontend/script.js"></script>
+</body>
+</html>

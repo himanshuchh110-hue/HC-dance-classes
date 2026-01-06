@@ -1,0 +1,15 @@
+/* Copy of root style.css optimized for docs/ */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+body { background:#f8f9fa; color:#333; }
+.top-bar{ background:linear-gradient(135deg,#b4e000 0%,#9fd000 100%); text-align:center; padding:12px; }
+.navbar{ display:flex; justify-content:space-between; align-items:center; padding:18px 40px; background:white; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+.logo{ font-weight:800; color:#0066ff }
+.hero{ position:relative; min-height:60vh; display:flex; align-items:center; justify-content:center; padding:80px 20px; background-size:cover; background-position:center; color:white }
+.hero-overlay{ position:absolute; left:0; right:0; top:0; bottom:0; background:rgba(0,0,0,0.35); }
+.hero-container{ position:relative; z-index:2; text-align:center; max-width:900px; padding:40px }
+.hero-container h1{ font-size:44px; margin-bottom:12px }
+.lead{ font-size:18px; color:rgba(255,255,255,0.95); margin-bottom:18px }
+.primary-btn{ background:linear-gradient(135deg,#0066ff 0%,#0052cc 100%); color:white; padding:12px 28px; border-radius:8px; border:none; cursor:pointer }
+/* minimal additional styles to keep layout */
+section{ padding:60px 20px }
+footer{ padding:40px; background:#111; color:#ddd }
