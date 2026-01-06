@@ -10,9 +10,14 @@ from recommender import recommend_classes
 app = Flask(__name__, static_folder='../frontend', static_url_path='')
 CORS(app)
 
-app.config['SECRET_KEY'] = 'steezy_secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# Production database configuration
+db_path = os.environ.get('DATABASE_PATH', 'instance/database.db')
+os.makedirs(os.path.dirname(db_path) if os.path.dirname(db_path) else 'instance', exist_ok=True)
+
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'steezy_secret')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['JSON_SORT_KEYS'] = False
 
 db.init_app(app)
 
@@ -219,4 +224,5 @@ def chat():
 # ---------------- RUN ---------------- #
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
