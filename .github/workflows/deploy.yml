@@ -1,0 +1,52 @@
+name: Deploy Backend and Frontend
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Trigger Render deploy
+      if: secrets.RENDER_API_KEY && secrets.RENDER_SERVICE_ID
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+      run: |
+        echo "Triggering Render deploy for service: $RENDER_SERVICE_ID"
+        curl -s -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Content-Type: application/json" \
+          -d '{}'
+
+    - name: Prepare frontend for GitHub Pages
+      env:
+        RENDER_SERVICE_URL: ${{ secrets.RENDER_SERVICE_URL }}
+      run: |
+        echo "Preparing docs/ from frontend/ and injecting backend URL"
+        rm -rf docs && mkdir docs
+        rsync -a --delete frontend/ docs/
+        if [ -f docs/index.html ]; then
+          python3 - <<'PY'
+import os
+p='docs/index.html'
+url=os.environ.get('RENDER_SERVICE_URL','https://your-backend-url')
+txt=open(p,'r',encoding='utf-8').read()
+txt=txt.replace('https://your-backend-url', url)
+open(p,'w',encoding='utf-8').write(txt)
+print('Updated',p)
+PY
+        else
+          echo 'docs/index.html not found; skipping replacement'
+        fi
+
+    - name: Deploy frontend to GitHub Pages (gh-pages branch)
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
