@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HC – Reach Your Dance Goals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    🎉 Special Offer! Get discount with code <b>HIMANSHU10</b>. Limited time offer →
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2 class="logo">HC DANCE CLASSES</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#styles">Styles</a>
+        <a href="#levels">Levels</a>
+        <a href="#reviews" onclick="scrollToReviews(); return false;">
+            Reviews <span id="review-count-badge" class="badge">0</span>
+        </a>
+        <a href="#blog">Blog</a>
+    </nav>
+    <div class="auth" id="auth-container">
+        <a href="#" onclick="showLogin(); return false;">Log In</a>
+        <button onclick="showSignup()">Sign Up</button>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="frontend/img/main.png" alt="Dance">
+    <div class="hero-text">
+        <h1>REACH YOUR DANCE GOALS</h1>
+        <p>With 1500+ online classes, programs, and more.</p>
+        <button class="primary-btn" onclick="showSignup()">GET STARTED</button>
+        <p class="trusted">Forbes • Indian Times • Insider</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2>About HC Dance Classes</h2>
+    <p>HC Dance Classes is a dedicated platform for nurturing talent, confidence, and creativity through the art of dance. We offer a wide range of classes for all ages and levels, taught by experienced instructors who focus on technique, musicality, and performance. Our courses combine discipline with creative expression, helping students build skills, confidence, and a lifelong love of movement. Whether you're starting out or aiming to perform professionally, HC Dance Classes is more than just a dance academy; it is a place where passion meets discipline and talent is transformed into confidence.</p>
+</section>
+
+<!-- DANCE STYLES -->
+<section class="styles">
+    <h2>Learn A Variety of Dance Styles</h2>
+    <div class="grid">
+        <button class="style-card" data-style="Open Style" aria-label="Open Style">
+            <img src="frontend/img/open style.jpg" alt="Open Style"><span>Open Style</span>
+        </button>
+        <button class="style-card" data-style="Hip Hop" aria-label="Hip Hop">
+            <img src="frontend/img/hiphop.jpg" alt="Hip Hop"><span>Hip Hop</span>
+        </button>
+        <button class="style-card" data-style="Contemporary" aria-label="Contemporary">
+            <img src="frontend/img/Contemporary.jpg" alt="Contemporary"><span>Contemporary</span>
+        </button>
+        <button class="style-card" data-style="Breaking" aria-label="Breaking">
+            <img src="frontend/img/breaking.jpg" alt="Breaking"><span>Breaking</span>
+        </button>
+    </div>
+</section>
+
+<!-- LEVELS -->
+<section class="levels">
+    <h2>Step-by-Step Learning For All Levels</h2>
+    <div class="level-cards">
+        <div class="card yellow">
+            <h4>BRAND NEW</h4>
+            <p>Got two left feet? Start with our 10-day intro program.</p>
+        </div>
+        <div class="card green">
+            <h4>BEGINNER</h4>
+            <p>Got the basics down? Level up with new moves and routines.</p>
+        </div>
+        <div class="card blue">
+            <h4>INTERMEDIATE</h4>
+            <p>Feel pretty confident? Learn more challenging skills and pieces.</p>
+        </div>
+        <div class="card mint">
+            <h4>ADVANCED</h4>
+            <p>Already killin’ it? Train with the top choreographers in the game.</p>
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community">
+    <div class="left">
+        <h2>Join Dancers In 100+ Countries</h2>
+        <p>Our global community is here to give feedback, share tips, and take on dance challenges with you.</p>
+    </div>
+</section>
+
+<!-- REVIEWS & RATINGS -->
+<section class="reviews" id="reviews">
+    <h2>Student Reviews & Ratings</h2>
+    <div class="reviews-container">
+        <div class="review-form-section">
+            <h3>Share Your Experience</h3>
+            <form onsubmit="submitReview(event)">
+                <input type="text" id="review-name" placeholder="Your Name" required>
+                <textarea id="review-text" placeholder="Share your thoughts about our classes..." rows="5" required></textarea>
+                <div class="rating-selector">
+                    <label>Rate your experience:</label>
+                    <div class="stars">
+                        <span class="star" onclick="setRating(1)" data-rating="1">★</span>
+                        <span class="star" onclick="setRating(2)" data-rating="2">★</span>
+                        <span class="star" onclick="setRating(3)" data-rating="3">★</span>
+                        <span class="star" onclick="setRating(4)" data-rating="4">★</span>
+                        <span class="star" onclick="setRating(5)" data-rating="5">★</span>
+                    </div>
+                    <span id="rating-value">0</span>/5
+                </div>
+                <input type="hidden" id="review-rating" value="0">
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+        <div class="reviews-list" id="reviews-list">
+            <p>Loading reviews...</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>HC DANCE CLASSES</h3>
+            <p>Get the latest dance content & HC news.</p>
+            <input type="email" id="newsletter-email" placeholder="Email">
+            <button onclick="subscribe()">Subscribe</button>
+        </div>
+        <div>
+            <h4>Explore</h4>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Support</a>
+        </div>
+        <div>
+            <h4>Contact Owner</h4>
+            <p><strong>Himanshu Choudhary</strong></p>
+            <p>📞 <a href="tel:7300470078">7300470078</a></p>
+            <p>Get in touch with the founder directly for inquiries and feedback.</p>
+        </div>
+    </div>
+    <p class="copyright">© 2026 HC Dance Classes | Owner: Himanshu Choudhary</p>
+</footer>
+
+<!-- AI CHATBOT -->
+<div id="chatbot-container" class="chatbot-container hidden">
+    <div class="chatbot-header">
+        <h3>Dance Assistant 🎉</h3>
+        <button class="close-chatbot" onclick="closeChatbot()">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chat-message bot-message">
+            <p>Hi! 👋 I'm your Dance Assistant. Ask me anything about our dance classes, styles, levels, or dance tips!</p>
+        </div>
+    </div>
+    <div class="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Ask about dance..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendChatMessage()">Send</button>
+    </div>
+</div>
+
+<button id="chatbot-toggle" class="chatbot-toggle" onclick="toggleChatbot()">
+    💬
+</button>
+
+<!-- DANCE INFO MODAL -->
+<div id="danceModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="closeDanceModal()">&times;</span>
+        <h2 id="danceModalTitle">Dance Title</h2>
+        <p id="danceModalDesc">Description goes here.</p>
+        <div class="dance-modal-actions">
+            <button class="primary-btn" onclick="showSignup(); closeDanceModal()">Join This Class</button>
+            <button class="secondary-btn" onclick="closeDanceModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Sign Up</h2>
+        <form onsubmit="handleSignup(event)">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Log In</h2>
+        <form onsubmit="handleLogin(event)">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const API_URL = (location.hostname.endsWith('github.io') ? 'https://your-backend-url' : 'http://localhost:5000');
+
+    function subscribe() {
+        const email = document.getElementById('newsletter-email').value;
+        if (!email) {
+            alert('Please enter an email');
+            return;
+        }
+        
+        fetch(API_URL + '/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message || data.error);
+            document.getElementById('newsletter-email').value = '';
+        })
+        .catch(err => alert('Error: ' + err));
+    }
+
+    function showSignup() {
+        document.getElementById('signupModal').classList.remove('hidden');
+    }
+
+    function closeSignup() {
+        document.getElementById('signupModal').classList.add('hidden');
+    }
+
+    function handleSignup(event) {
+        event.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+
+        fetch(API_URL + '/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
+                // Store user name in localStorage
+                localStorage.setItem('userName', name);
+                alert(data.message);
+                closeSignup();
+                displayWelcome(name);
+                // Clear form
+                document.getElementById('signup-name').value = '';
+                document.getElementById('signup-email').value = '';
+                document.getElementById('signup-password').value = '';
+            } else {
+                alert(data.error || 'Signup failed');
+            }
+        })
+        .catch(err => alert('Error: ' + err));
+    }
+
+    function showLogin() {
+        document.getElementById('loginModal').classList.remove('hidden');
+    }
+
+    function closeLogin() {
+        document.getElementById('loginModal').classList.add('hidden');
+    }
+
+    function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        fetch(API_URL + '/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
+                // For login, we'll use the email as the display name
+                // In a real app, you'd get the user's name from the response
+                const userName = data.name || email.split('@')[0];
+                localStorage.setItem('userName', userName);
+                alert(data.message);
+                closeLogin();
+                displayWelcome(userName);
+                document.getElementById('login-email').value = '';
+                document.getElementById('login-password').value = '';
+            } else {
+                alert(data.error || 'Login failed');
+            }
+        })
+        .catch(err => alert('Error: ' + err));
+    }
+
+    let currentRating = 0;
+
+    function setRating(rating) {
+        currentRating = rating;
+        document.getElementById('review-rating').value = rating;
+        document.getElementById('rating-value').textContent = rating;
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
+    }
+
+    function submitReview(event) {
+        event.preventDefault();
+        const name = document.getElementById('review-name').value;
+        const text = document.getElementById('review-text').value;
+        const rating = document.getElementById('review-rating').value;
+
+        if (rating == 0) {
+            alert('Please select a rating');
+            return;
+        }
+
+        fetch(API_URL + '/reviews', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, text, rating: parseInt(rating) })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message || data.error);
+            if (data.message) {
+                document.getElementById('review-name').value = '';
+                document.getElementById('review-text').value = '';
+                setRating(0);
+                loadReviews();
+            }
+        })
+        .catch(err => alert('Error: ' + err));
+    }
+
+    function loadReviews() {
+        fetch(API_URL + '/reviews')
+            .then(res => res.json())
+            .then(reviews => {
+                const reviewsList = document.getElementById('reviews-list');
+                const badge = document.getElementById('review-count-badge');
+                
+                // Update badge count
+                if (badge) {
+                    badge.textContent = reviews.length;
+                }
+                
+                if (reviews.length === 0) {
+                    reviewsList.innerHTML = '<p>No reviews yet. Be the first to review!</p>';
+                    return;
+                }
+                reviewsList.innerHTML = reviews.map(review => `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <h4>${review.name}</h4>
+                            <div class="review-stars">${'★'.repeat(review.rating)}<span class="empty-stars">${'☆'.repeat(5-review.rating)}</span></div>
+                        </div>
+                        <p class="review-text">${review.text}</p>
+                    </div>
+                `).join('');
+            })
+            .catch(err => console.error('Error loading reviews:', err));
+    }
+
+    // Load reviews when page loads
+    window.addEventListener('load', () => {
+        loadReviews();
+        checkUserLogin();
+    });
+
+    // Check if user is logged in on page load
+    function checkUserLogin() {
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            displayWelcome(userName);
+        }
+    }
+
+    // Display welcome message with user's name
+    function displayWelcome(userName) {
+        const authContainer = document.getElementById('auth-container');
+        authContainer.innerHTML = `
+            <div class="welcome-message">
+                <span class="welcome-text">👋 Welcome, <strong>${userName}</strong>!</span>
+                <button onclick="logoutUser()" class="logout-btn">Logout</button>
+            </div>
+        `;
+    }
+
+    // Logout user
+    function logoutUser() {
+        localStorage.removeItem('userName');
+        location.reload();
+    }
+
+    // Scroll to reviews section
+    function scrollToReviews() {
+        const reviewsSection = document.getElementById('reviews');
+        if (reviewsSection) {
+            reviewsSection.scrollIntoView({ behavior: 'smooth' });
+            // Highlight the section briefly
+            reviewsSection.style.backgroundColor = 'rgba(0, 102, 255, 0.1)';
+            setTimeout(() => {
+                reviewsSection.style.backgroundColor = 'white';
+            }, 2000);
+        }
+    }
+
+    // -------- CHATBOT -------- //
+
+    function toggleChatbot() {
+        const container = document.getElementById('chatbot-container');
+        if (!container) {
+            console.error('Chatbot container not found');
+            return;
+        }
+        
+        const isHidden = container.classList.contains('hidden');
+        console.log('Toggle chatbot. Currently hidden:', isHidden);
+        
+        if (isHidden) {
+            container.classList.remove('hidden');
+            setTimeout(() => {
+                const input = document.getElementById('chatbot-input');
+                if (input) input.focus();
+            }, 100);
+        } else {
+            container.classList.add('hidden');
+        }
+    }
+
+    function closeChatbot() {
+        const container = document.getElementById('chatbot-container');
+        if (container) {
+            container.classList.add('hidden');
+        }
+    }
+
+    function sendChatMessage() {
+        const input = document.getElementById('chatbot-input');
+        const message = input.value.trim();
+        
+        console.log('Sending message:', message);
+        
+        if (!message) return;
+
+        addChatMessage('user', message);
+        input.value = '';
+
+        // Send to backend
+        const payload = { message };
+        console.log('API_URL:', API_URL);
+        console.log('Payload:', payload);
+        
+        fetch(API_URL + '/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(res => {
+            console.log('Response status:', res.status);
+            if (!res.ok) {
+                throw new Error('Network response was not ok: ' + res.status);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            if (data.response) {
+                // Replace newlines with HTML line breaks
+                const formattedResponse = data.response.replace(/\n/g, '<br>');
+                const messagesDiv = document.getElementById('chatbot-messages');
+                const messageEl = document.createElement('div');
+                messageEl.className = 'chat-message bot-message';
+                messageEl.innerHTML = `<p>${formattedResponse}</p>`;
+                messagesDiv.appendChild(messageEl);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        })
+        .catch(err => {
+            console.error('Chat error:', err);
+            addChatMessage('bot', 'Sorry, I encountered an error. Please check the browser console.');
+        });
+    }
+
+    function handleChatKeypress(event) {
+        if (event.key === 'Enter') {
+            sendChatMessage();
+        }
+    }
+
+    function addChatMessage(sender, message) {
+        const messagesDiv = document.getElementById('chatbot-messages');
+        const messageEl = document.createElement('div');
+        messageEl.className = `chat-message ${sender}-message`;
+        
+        // For user messages, just show as is
+        // For bot messages, they're already formatted
+        messageEl.innerHTML = `<p>${message}</p>`;
+        
+        messagesDiv.appendChild(messageEl);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // -------- DANCE INFO (Style Card) -------- //
+
+        const DANCE_INFO = {
+            "Open Style": {
+                title: "Open Style",
+                desc: "Open Style encourages personal expression — mix techniques, improvise, and build your signature moves. Great for creativity and freestyle sessions. Classes include foundational technique, musicality, and improvisation challenges.",
+            },
+            "Hip Hop": {
+                title: "Hip Hop",
+                desc: "Hip Hop is energetic and rhythm-driven. Learn grooves, isolations, popping, and foundational choreography. Classes focus on footwork, performance, and urban choreography sequences.",
+            },
+            "Contemporary": {
+                title: "Contemporary",
+                desc: "Contemporary blends modern technique with expressive movement. Expect floorwork, release technique, phrasing, and emotional storytelling through choreography.",
+            },
+            "Breaking": {
+                title: "Breaking",
+                desc: "Breaking (B-boying/B-girling) features top rocks, footwork, freezes, and power moves. Classes emphasize strength, coordination, and progressive skill building for safe acrobatics.",
+            }
+        };
+
+        function openDanceModal(styleKey) {
+            const info = DANCE_INFO[styleKey] || { title: styleKey, desc: "We offer great classes for this style. Sign up to learn more!" };
+            document.getElementById('danceModalTitle').innerText = info.title;
+            document.getElementById('danceModalDesc').innerHTML = info.desc;
+            const modal = document.getElementById('danceModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeDanceModal() {
+            const modal = document.getElementById('danceModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        // Attach click handlers to style cards
+        document.addEventListener('click', function (e) {
+            const card = e.target.closest('.style-card');
+            if (card) {
+                const styleName = card.getAttribute('data-style');
+                openDanceModal(styleName);
+            }
+        });
+    </script>
+
+</body>
+</html>
